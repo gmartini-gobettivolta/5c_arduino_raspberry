@@ -1,0 +1,33 @@
+Preparazione database
+sudo mysql -u root -p
+
+Creare il database
+mysql> CREATE DATABASE temperature_db;
+
+Creare un utente e dargli i permessi per operare sul database, l'utente e la password sono specifici del database e non hanno niente
+in comune con gli utenti del sistema.
+mysql> GRANT ALL PRIVILEGES ON temperature_db.* TO 'user_temperature_db'@'localhost' IDENTIFIED BY 'password_temperature_db';
+
+Uscire
+mysql> quit
+
+
+Come utente
+$ mysql -u user_temperature_db -p
+
+Specificare quale database usare
+mysql> USE temperature_db;
+
+Create la tabella
+mysql> CREATE TABLE temperature_tbl (id INT NOT NULL AUTO_INCREMENT,  date VARCHAR(255), time VARCHAR(255),  temperature VARCHAR(255), PRIMARY KEY (id) );
+
+Inserire un record di prova
+mysql> INSERT INTO temperature_tbl (date, time, temperature)
+VALUES ("32/03/2021", "09:00", "22.4");
+
+
+Per visualizzare il dato inserito
+mysql> SELECT * FROM temperature_tbl;
+
+
+
